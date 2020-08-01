@@ -120,8 +120,8 @@ foreman currently supports the following output formats:
 Will export a chunk of inittab-compatible configuration:
 
     # ----- foreman example processes -----
-    EX01:4:respawn:/bin/su - example -c 'PORT=5000 bundle exec thin start >> /var/log/web-1.log 2>&1'
-    EX02:4:respawn:/bin/su - example -c 'PORT=5100 bundle exec rake jobs:work >> /var/log/job-1.log 2>&1'
+    EX01:4:respawn:/bin/su - example -c 'FOREMAN_PORT=5000 bundle exec thin start >> /var/log/web-1.log 2>&1'
+    EX02:4:respawn:/bin/su - example -c 'FOREMAN_PORT=5100 bundle exec rake jobs:work >> /var/log/job-1.log 2>&1'
     # ----- end foreman example processes -----
 
 ## SYSTEMD EXPORT
@@ -159,13 +159,13 @@ You can validate your Procfile format using the `check` command:
 
     $ foreman check
 
-The special environment variables `$PORT` and `$PS` are available within the
-Procfile. `$PORT` is the port selected for that process. `$PS` is the name of
+The special environment variables `$FOREMAN_PORT` and `$PS` are available within the
+Procfile. `$FOREMAN_PORT` is the port selected for that process. `$PS` is the name of
 the process for the line.
 
-The `$PORT` value starts as the base port as specified by `-p`, then increments
+The `$FOREMAN_PORT` value starts as the base port as specified by `-p`, then increments
 by 100 for each new process line. Multiple instances of the same process are
-assigned `$PORT` values that increment by 1.
+assigned `$FOREMAN_PORT` values that increment by 1.
 
 ## ENVIRONMENT
 

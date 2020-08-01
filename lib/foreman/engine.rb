@@ -281,7 +281,7 @@ class Foreman::Engine
   # @returns [Fixnum] port  The base port
   #
   def base_port
-    (options[:port] || env["PORT"] || ENV["PORT"] || 5000).to_i
+    (options[:port] || env["FOREMAN_PORT"] || ENV["FOREMAN_PORT"] || 5000).to_i
   end
 
   # deprecated
@@ -365,7 +365,7 @@ private
         reader, writer = create_pipe
         begin
           pid = process.run(:output => writer, :env => {
-            "PORT" => port_for(process, n).to_s,
+            "FOREMAN_PORT" => port_for(process, n).to_s,
             "PS" => name_for_index(process, n)
           })
           writer.puts "started with pid #{pid}"

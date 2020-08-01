@@ -6,7 +6,7 @@
     <string>app-bravo-1</string>
     <key>EnvironmentVariables</key>
     <dict>
-        <key>PORT</key>
+        <key>FOREMAN_PORT</key>
         <string>5100</string>
     </dict>
     <key>ProgramArguments</key>

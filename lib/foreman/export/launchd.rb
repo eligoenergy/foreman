@@ -10,7 +10,7 @@ class Foreman::Export::Launchd < Foreman::Export::Base
         port = engine.port_for(process, num)
         command_args = process.command.split(/\s+/).map{|arg|
           case arg
-          when "$PORT" then port
+          when "$FOREMAN_PORT" then port
           else arg
           end
         }

@@ -5,7 +5,7 @@ StopWhenUnneeded=yes
 [Service]
 User=<%= user %>
 WorkingDirectory=<%= engine.root %>
-Environment=PORT=<%= port %>
+Environment=FOREMAN_PORT=<%= port %>
 Environment=PS=<%= process_name %>
 <% engine.env.each_pair do |var,env| -%>
 Environment="<%= var %>=<%= env %>"

@@ -4,7 +4,7 @@ engine.each_process do |name, process|
   1.upto(engine.formation[name]) do |num|
     port = engine.port_for(process, num)
     full_name = "#{app}-#{name}-#{num}"
-    environment = engine.env.merge("PORT" => port.to_s).map do |key, value|
+    environment = engine.env.merge("FOREMAN_PORT" => port.to_s).map do |key, value|
     	value = shell_quote(value)
     	value = value.gsub('\=', '=')
     	value = value.gsub('\&', '&')

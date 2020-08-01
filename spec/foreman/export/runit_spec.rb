@@ -19,15 +19,15 @@ describe Foreman::Export::Runit, :fakefs do
 
     expect(File.read("/tmp/init/app-alpha-1/run")).to      eq(example_export_file('runit/app-alpha-1/run'))
     expect(File.read("/tmp/init/app-alpha-1/log/run")).to  eq(example_export_file('runit/app-alpha-1/log/run'))
-    expect(File.read("/tmp/init/app-alpha-1/env/PORT")).to eq("5000\n")
+    expect(File.read("/tmp/init/app-alpha-1/env/FOREMAN_PORT")).to eq("5000\n")
     expect(File.read("/tmp/init/app-alpha-1/env/BAR")).to  eq("baz\n")
     expect(File.read("/tmp/init/app-alpha-2/run")).to      eq(example_export_file('runit/app-alpha-2/run'))
     expect(File.read("/tmp/init/app-alpha-2/log/run")).to  eq(example_export_file('runit/app-alpha-2/log/run'))
-    expect(File.read("/tmp/init/app-alpha-2/env/PORT")).to eq("5001\n")
+    expect(File.read("/tmp/init/app-alpha-2/env/FOREMAN_PORT")).to eq("5001\n")
     expect(File.read("/tmp/init/app-alpha-2/env/BAR")).to  eq("baz\n")
     expect(File.read("/tmp/init/app-bravo-1/run")).to      eq(example_export_file('runit/app-bravo-1/run'))
     expect(File.read("/tmp/init/app-bravo-1/log/run")).to  eq(example_export_file('runit/app-bravo-1/log/run'))
-    expect(File.read("/tmp/init/app-bravo-1/env/PORT")).to eq("5100\n")
+    expect(File.read("/tmp/init/app-bravo-1/env/FOREMAN_PORT")).to eq("5100\n")
   end
 
   it "creates a full path to the export directory" do

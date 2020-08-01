@@ -16,7 +16,7 @@ class Foreman::Export::Inittab < Foreman::Export::Base
 
         commands = []
         commands << "cd #{engine.root}"
-        commands << "export PORT=#{port}"
+        commands << "export FOREMAN_PORT=#{port}"
         engine.env.each_pair do |var, env|
           commands << "export #{var.upcase}=#{shell_quote(env)}"
         end

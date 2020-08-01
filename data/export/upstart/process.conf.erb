@@ -2,9 +2,9 @@ start on starting <%= app %>-<%= name %>
 stop on stopping <%= app %>-<%= name %>
 respawn
 
-env PORT=<%= port %>
+env FOREMAN_PORT=<%= port %>
 <% engine.env.each do |name,value| -%>
-<% next if name.upcase == "PORT" -%>
+<% next if name.upcase == "FOREMAN_PORT" -%>
 env <%= name %>='<%= value.gsub(/'/, "'\"'\"'") %>'
 <% end -%>
 

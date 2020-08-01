@@ -5,7 +5,7 @@ StopWhenUnneeded=yes
 [Service]
 User=app
 WorkingDirectory=/tmp/app
-Environment=PORT=5100
+Environment=FOREMAN_PORT=5100
 Environment=PS=bravo.1
 ExecStart=/bin/bash -lc 'exec -a "app-bravo.1" ./bravo'
 Restart=always

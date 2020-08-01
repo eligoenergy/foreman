@@ -135,8 +135,8 @@ Will export a chunk of inittab\-compatible configuration:
 .nf
 
 # \-\-\-\-\- foreman example processes \-\-\-\-\-
-EX01:4:respawn:/bin/su \- example \-c \'PORT=5000 bundle exec thin start >> /var/log/web\-1\.log 2>&1\'
-EX02:4:respawn:/bin/su \- example \-c \'PORT=5100 bundle exec rake jobs:work >> /var/log/job\-1\.log 2>&1\'
+EX01:4:respawn:/bin/su \- example \-c \'FOREMAN_PORT=5000 bundle exec thin start >> /var/log/web\-1\.log 2>&1\'
+EX02:4:respawn:/bin/su \- example \-c \'FOREMAN_PORT=5100 bundle exec rake jobs:work >> /var/log/job\-1\.log 2>&1\'
 # \-\-\-\-\- end foreman example processes \-\-\-\-\-
 .
 .fi
@@ -195,10 +195,10 @@ $ foreman check
 .IP "" 0
 .
 .P
-The special environment variables \fB$PORT\fR and \fB$PS\fR are available within the Procfile\. \fB$PORT\fR is the port selected for that process\. \fB$PS\fR is the name of the process for the line\.
+The special environment variables \fB$FOREMAN_PORT\fR and \fB$PS\fR are available within the Procfile\. \fB$FOREMAN_PORT\fR is the port selected for that process\. \fB$PS\fR is the name of the process for the line\.
 .
 .P
-The \fB$PORT\fR value starts as the base port as specified by \fB\-p\fR, then increments by 100 for each new process line\. Multiple instances of the same process are assigned \fB$PORT\fR values that increment by 1\.
+The \fB$FOREMAN_PORT\fR value starts as the base port as specified by \fB\-p\fR, then increments by 100 for each new process line\. Multiple instances of the same process are assigned \fB$FOREMAN_PORT\fR values that increment by 1\.
 .
 .SH "ENVIRONMENT"
 If a \fB\.env\fR file exists in the current directory, the default environment will be read from it\. This file should contain key/value pairs, separated by \fB=\fR, with one key/value pair per line\.

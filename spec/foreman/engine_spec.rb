@@ -105,7 +105,7 @@ describe "Foreman::Engine", :fakefs do
     end
 
     it "should set port from .env if specified" do
-      write_file("/tmp/env") { |f| f.puts("PORT=9000") }
+      write_file("/tmp/env") { |f| f.puts("FOREMAN_PORT=9000") }
       subject.load_env "/tmp/env"
       expect(subject.send(:base_port)).to eq(9000)
     end

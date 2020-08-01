@@ -5,7 +5,7 @@ StopWhenUnneeded=yes
 [Service]
 User=app
 WorkingDirectory=/tmp/app
-Environment=PORT=5001
+Environment=FOREMAN_PORT=5001
 Environment=PS=alpha.2
 ExecStart=/bin/bash -lc 'exec -a "app-alpha.2" ./alpha'
 Restart=always
